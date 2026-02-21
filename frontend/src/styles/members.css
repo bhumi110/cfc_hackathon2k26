@@ -9,7 +9,7 @@
   margin: 0 auto;
 }
 .glow-text-members {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel Decorative', serif;
   font-size: 3rem;
   color: #ff1a1a;
   animation: flicker 2s infinite alternate;
@@ -58,8 +58,17 @@
   height: 120px;
   margin: 0 auto 25px auto;
   border-radius: 50%;
+  border-color: #00eaff !important;
+  border:2px solid #00eaff;
   padding: 4px;
-  background: radial-gradient(circle, #00eaff 0%, transparent 70%);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.272);
+  transition: all 0.3s ease;
+
+  /* background: radial-gradient(circle, #00eaff 0%, transparent 70%); */
+}
+.member-avatar:hover{
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.422);
+
 }
 
 .member-avatar img {

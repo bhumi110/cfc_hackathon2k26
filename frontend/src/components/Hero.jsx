@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 
 const Hero = () => {
   const calculateTimeLeft = () => {
-    const difference = +new Date("2026-04-15") - +new Date();
+    const difference = +new Date("2026-04-10") - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
@@ -42,7 +42,7 @@ const Hero = () => {
         </h1>
 
         <p className="tagline fade-in-up delay-1">Enter the Upside Down of Innovation</p>
-        <p className="time fade-in-up delay-2">April 15–16, 2026 • NSHM KNOWLEDGE CAMPUS, DURGAPUR</p>
+        <p className="time fade-in-up delay-2">April 10 - 11, 2026 • NSHM KNOWLEDGE CAMPUS, DURGAPUR</p>
 
         <div className="countdown fade-in-up delay-3">
           <div><h2>{timeLeft.days}</h2><span>DAYS</span></div>
