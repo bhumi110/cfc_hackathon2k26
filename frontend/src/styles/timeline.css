@@ -1,0 +1,222 @@
+/* ===== TIMELINE SECTION ===== */
+.timeline-section {
+    background: var(--st-bg-secondary);
+}
+
+.timeline-track {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Center line — animated via Framer Motion scaleY */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            var(--st-red-dim) 10%,
+            var(--st-red) 50%,
+            var(--st-red-dim) 90%,
+            transparent 100%);
+    z-index: 1;
+}
+
+/* Item row - symmetrical grid */
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.timeline-item--left .timeline-content {
+    grid-column: 1;
+    justify-self: end;
+    margin-right: 40px;
+    text-align: right;
+}
+
+.timeline-item--right .timeline-content {
+    grid-column: 2;
+    justify-self: start;
+    margin-left: 40px;
+    text-align: left;
+}
+
+/* Dot — now a container for inner pulse ring */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--st-red);
+    box-shadow:
+        0 0 10px var(--st-red-glow),
+        0 0 25px var(--st-red-dim);
+    z-index: 3;
+    border: 3px solid var(--st-bg-primary);
+}
+
+/* Pulse ring radiating from dot */
+.timeline-dot-ping {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid var(--st-red);
+    transform: translate(-50%, -50%);
+    animation: timeline-ping 2.5s ease-out infinite;
+    opacity: 0;
+}
+
+@keyframes timeline-ping {
+    0% {
+        width: 16px;
+        height: 16px;
+        opacity: 0.7;
+    }
+
+    100% {
+        width: 46px;
+        height: 46px;
+        opacity: 0;
+    }
+}
+
+/* Connector line segment between items (vertical) */
+.timeline-connector {
+    position: absolute;
+    left: 50%;
+    top: calc(50% + 8px);
+    bottom: -60px;
+    width: 2px;
+    background: var(--st-red-dim);
+    transform-origin: top;
+    z-index: 2;
+}
+
+/* Content card */
+.timeline-content {
+    max-width: 340px;
+    width: 100%;
+    position: relative;
+    padding: 20px 24px;
+    border-radius: var(--st-radius);
+    background: var(--st-bg-card);
+    border: 1px solid var(--st-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: var(--st-transition);
+}
+
+/* Horizontal line connector from card to dot */
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    background: var(--st-red-dim);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.timeline-item--left .timeline-content::after {
+    right: -40px;
+}
+
+.timeline-item--right .timeline-content::after {
+    left: -40px;
+}
+
+.timeline-content:hover {
+    border-color: var(--st-red);
+    box-shadow:
+        0 0 20px var(--st-red-dim),
+        inset 0 0 20px rgba(228, 0, 0, 0.05);
+}
+
+.timeline-content:hover::after {
+    background: var(--st-red);
+    box-shadow: 0 0 6px var(--st-red-glow);
+    width: 42px;
+}
+
+.timeline-date {
+    display: inline-block;
+    font-family: var(--st-font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--st-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+    text-shadow: 0 0 8px var(--st-cyan-glow);
+}
+
+.timeline-title {
+    font-family: var(--st-font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--st-text-primary);
+    margin-bottom: 4px;
+}
+
+.timeline-desc {
+    font-size: 0.85rem;
+    color: var(--st-text-secondary);
+    line-height: 1.5;
+}
+
+/* ===== RESPONSIVE — Single column ===== */
+@media (max-width: 768px) {
+    .timeline-track {
+        max-width: 100%;
+        padding: 30px 0;
+    }
+
+    .timeline-line {
+        left: 20px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        margin-bottom: 40px;
+        gap: 0;
+    }
+
+    .timeline-item--left .timeline-content,
+    .timeline-item--right .timeline-content {
+        grid-column: 1;
+        justify-self: start;
+        margin-left: 50px;
+        margin-right: 0;
+        text-align: left;
+        max-width: calc(100% - 70px);
+    }
+
+    .timeline-dot {
+        left: 20px;
+    }
+
+    .timeline-connector {
+        left: 20px;
+    }
+
+    .timeline-content::after {
+        display: none;
+    }
+}
