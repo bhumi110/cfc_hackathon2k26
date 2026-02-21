@@ -1,0 +1,80 @@
+/* ===== PRIZES SECTION ===== */
+.prizes-section {
+    background: var(--st-bg-secondary);
+}
+
+.prizes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.prize-card {
+    padding: 40px 20px;
+    text-align: center;
+    cursor: default;
+    position: relative;
+}
+
+.prize-card:hover {
+    border-color: var(--prize-color, var(--st-cyan));
+    box-shadow:
+        0 0 20px color-mix(in srgb, var(--prize-color, var(--st-cyan)) 25%, transparent),
+        0 0 50px color-mix(in srgb, var(--prize-color, var(--st-cyan)) 10%, transparent);
+}
+
+.prize-icon-wrap {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--prize-color, var(--st-cyan));
+    filter: drop-shadow(0 0 8px var(--prize-glow, var(--st-cyan-glow)));
+    transition: var(--st-transition);
+}
+
+.prize-card:hover .prize-icon-wrap {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 16px var(--prize-glow, var(--st-cyan-glow)));
+}
+
+.prize-place {
+    font-family: var(--st-font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--st-text-primary);
+    margin-bottom: 8px;
+}
+
+.prize-amount {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--prize-color, var(--st-cyan));
+    text-shadow: 0 0 12px var(--prize-glow, var(--st-cyan-glow));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .prizes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prizes-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+
+    .prize-card {
+        padding: 30px 16px;
+    }
+}

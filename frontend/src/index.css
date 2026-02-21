@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+/* ===== STRANGER THINGS THEME VARIABLES ===== */
+:root {
+  --st-bg-primary: #0a0a0f;
+  --st-bg-secondary: #0d0d14;
+  --st-bg-card: rgba(15, 15, 25, 0.85);
+  --st-red: #e40000;
+  --st-red-glow: rgba(228, 0, 0, 0.4);
+  --st-red-dim: rgba(228, 0, 0, 0.15);
+  --st-cyan: #00e5ff;
+  --st-cyan-glow: rgba(0, 229, 255, 0.4);
+  --st-cyan-dim: rgba(0, 229, 255, 0.12);
+  --st-purple: #b44dff;
+  --st-purple-glow: rgba(180, 77, 255, 0.4);
+  --st-text-primary: #e8e8e8;
+  --st-text-secondary: #8a8a9a;
+  --st-text-dim: #555566;
+  --st-border: rgba(228, 0, 0, 0.2);
+  --st-font-display: 'Cinzel Decorative', serif;
+  --st-font-body: 'Space Grotesk', sans-serif;
+  --st-radius: 12px;
+  --st-transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== GLOBAL RESET ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--st-font-body);
+  background-color: var(--st-bg-primary);
+  color: var(--st-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== SECTION BASE ===== */
+.st-section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.st-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, var(--st-red-dim) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--st-cyan-dim) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(180, 77, 255, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.st-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== SECTION TITLES ===== */
+.st-section-title {
+  font-family: var(--st-font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--st-red);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  text-shadow:
+    0 0 10px var(--st-red-glow),
+    0 0 30px var(--st-red-glow),
+    0 0 60px rgba(228, 0, 0, 0.15);
+  animation: st-title-flicker 8s linear infinite;
+}
+
+@keyframes st-title-flicker {
+
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow:
+      0 0 10px var(--st-red-glow),
+      0 0 30px var(--st-red-glow),
+      0 0 60px rgba(228, 0, 0, 0.15);
+    opacity: 1;
+  }
+
+  20%,
+  24%,
+  55%,
+  56% {
+    text-shadow: none;
+    opacity: 0.8;
+  }
+}
+
+/* ===== GLOWING CARD BASE ===== */
+.st-card {
+  background: var(--st-bg-card);
+  border: 1px solid var(--st-border);
+  border-radius: var(--st-radius);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: var(--st-transition);
+}
+
+.st-card:hover {
+  border-color: var(--st-red);
+  box-shadow:
+    0 0 20px var(--st-red-dim),
+    0 0 40px rgba(228, 0, 0, 0.08),
+    inset 0 0 20px rgba(228, 0, 0, 0.03);
+  transform: translateY(-4px);
+}
+
+/* ===== FLOATING PARTICLES ===== */
+.st-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.st-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  animation: st-float linear infinite;
+  opacity: 0;
+}
+
+.st-particle--red {
+  background: var(--st-red);
+  box-shadow: 0 0 6px var(--st-red-glow);
+}
+
+.st-particle--cyan {
+  background: var(--st-cyan);
+  box-shadow: 0 0 6px var(--st-cyan-glow);
+}
+
+@keyframes st-float {
+  0% {
+    transform: translateY(110vh) translateX(0) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(50vh) translateX(20px) scale(1) rotate(180deg);
+    opacity: 0.8;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-10vh) translateX(-10px) scale(0.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== NEON DIVIDER ===== */
+.st-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--st-red) 30%,
+      var(--st-cyan) 70%,
+      transparent 100%);
+  opacity: 0.3;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--st-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--st-red-dim);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--st-red);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .st-section {
+    padding: 60px 0;
+  }
+
+  .st-section-title {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+  }
+
+  .st-container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .st-section {
+    padding: 48px 0;
+  }
+
+  .st-section-title {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+}

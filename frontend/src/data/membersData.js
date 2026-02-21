@@ -1,11 +1,11 @@
 const membersData = [
   {
     id: 1,
-    name: "Jane Doe",
+    name: "Baishali Mukherjee",
     image: "/avatars/avatar1.png",
     socials: {
-      linkedin: "https://linkedin.com/in/janedoe",
-      instagram: "https://instagram.com/janedoe",
+      linkedin: "https://www.linkedin.com/in/baishali-mukherjee-211316284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      instagram: "https://www.instagram.com/b.a.i.s.h.a.l.i_20?igsh=MWFzcDZqMTBwYXZiZA==",
     },
   },
   {
