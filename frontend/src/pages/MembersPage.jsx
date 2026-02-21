@@ -1,20 +1,19 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
+import Members from "../components/Members";
 import ParticleBackground from "../components/ParticleBg";
 
-function Home() {
+const MembersPage = () => {
   return (
     <div className="page-wrapper">
       <ParticleBackground />
 
       <div className="content-layer">
         <Navbar />
-        <Hero />
-
+        <Members />
       </div>
     </div>
   );
-}
+};
 
-export default Home;
+export default MembersPage;

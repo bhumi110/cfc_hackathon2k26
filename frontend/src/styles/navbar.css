@@ -1,0 +1,76 @@
+.custom-navbar {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 10px 40px;
+}
+
+.nav-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Cinzel', serif !important;
+  color: red !important;
+  letter-spacing: 2px;
+}
+
+/* Desktop Links */
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links .MuiButton-root {
+  color: #ccc !important;
+  font-family: 'Cinzel', serif;
+  transition: 0.3s ease;
+}
+
+.nav-links .MuiButton-root:hover {
+  color: white !important;
+}
+
+/* Mobile Button Hidden on Desktop */
+.menu-btn {
+  display: none !important;
+}
+
+/* Drawer */
+.drawer-list {
+  width: 260px;
+  height: 100%;
+  padding: 40px 25px;
+  background: linear-gradient(180deg, #0a0a0a, #111, #050505);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drawer-list .MuiButton-root {
+  color: #ccc !important;
+  font-family: 'Cinzel', serif;
+  justify-content: flex-start;
+  transition: 0.3s ease;
+}
+
+.drawer-list .MuiButton-root:hover {
+  color: #ff2e2e !important;
+  transform: translateX(6px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block !important;
+  }
+
+  .custom-navbar {
+    padding: 10px 20px;
+  }
+}

@@ -1,12 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import MembersPage from "./pages/MembersPage";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>Vite + React</h1>
+      <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/members" element={<MembersPage />} />
+      </Routes>
+    </Router>
       
     </>
   )
