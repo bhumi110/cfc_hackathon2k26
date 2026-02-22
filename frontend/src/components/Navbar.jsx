@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -9,21 +9,12 @@ import {
   Box,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import "../styles/navbar.css";
 import { Link } from "react-router-dom";
+import "../styles/navbar.css";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "Sponsor Call", path: "/" },
@@ -33,7 +24,7 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="fixed" className={`custom-navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+      <AppBar position="fixed" className="custom-navbar" elevation={0}>
         <Toolbar className="nav-toolbar">
           <Typography variant="h6" className="logo">
             HACKATHON
@@ -46,7 +37,6 @@ const Navbar = () => {
                 key={item.label}
                 component={Link}
                 to={item.path}
-                color="inherit"
               >
                 {item.label}
               </Button>
@@ -56,7 +46,6 @@ const Navbar = () => {
           {/* Mobile Icon */}
           <IconButton
             edge="end"
-            color="inherit"
             className="menu-btn"
             onClick={() => setOpen(true)}
           >
@@ -73,7 +62,7 @@ const Navbar = () => {
               key={item.label}
               component={Link}
               to={item.path}
-              color="inherit"
+              onClick={() => setOpen(false)}
             >
               {item.label}
             </Button>
