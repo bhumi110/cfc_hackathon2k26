@@ -51,7 +51,7 @@ const Members = () => {
             </div>
           ))}
         </div>
-        <div className="mentors-section">
+        {/* <div className="mentors-section">
           <h2 className="members-title mentors-heading">
             OUR MENTORS FROM THE REAL WORLD
           </h2>
@@ -72,7 +72,7 @@ const Members = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
