@@ -21,6 +21,7 @@
   background: var(--bg-primary);
   overflow: hidden;
   isolation: isolate;
+  
 }
 
 .content-layer {

@@ -5,14 +5,16 @@ import Arijit from "../assets/Arijit Shaw.JPG"
 import Senjuti from "../assets/Senjuti Ghosh.jpg"
 import Snigdha from "../assets/Snigdha Mondal_.jpg"
 import Abhirupa from "../assets/Abhirupa Mukhopadhyay_1.jpg"
+import Zishan from "../assets/Md Zishan Azam.jpg"
+import Baishali from "../assets/Baishali.jpg"
 
 
 
-const membersData = [
+export const membersData = [
   {
     id: 1,
     name: "Baishali Mukherjee",
-    image: "/avatars/avatar1.png",
+    image: Baishali,
     socials: {
       linkedin: "https://www.linkedin.com/in/baishali-mukherjee-211316284",
       instagram: "https://www.instagram.com/b.a.i.s.h.a.l.i_20?igsh=MWFzcDZqMTBwYXZiZA==",
@@ -48,7 +50,7 @@ const membersData = [
   {
     id: 5,
     name: "Md Zishan Azam",
-    image: "/avatars/avatar5.png",
+    image: Zishan,
     socials: {
       linkedin: "https://linkedin.com/in/janedoe",
       instagram: "https://instagram.com/janedoe",
@@ -101,4 +103,25 @@ const membersData = [
   },
 ];
 
-export default membersData;
+export const mentors = [
+  {
+    id: 1,
+    name: "Dr. Emily Carter",
+    role: "Professor of Computer Science",
+    image: Bhumi
+  },
+  {
+    id: 2,
+    name: "Raj Krishnan",
+    role: "Senior Engineering Manager",
+    image: Bhumi
+
+  },
+  {
+    id: 3,
+    name: "Dr. Lisa Park",
+    role: "Director of Innovation",
+    image: Bhumi
+
+  },
+];

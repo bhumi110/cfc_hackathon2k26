@@ -1,7 +1,21 @@
 /* ===== PRIZES SECTION ===== */
-.prizes-section {
-    background: var(--st-bg-secondary);
+
+
+
+/* Soft premium section glow*/
+.prizes-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(168, 85, 247, 0.07),
+        transparent 60%
+    );
+    pointer-events: none;
 }
+
+/* ===== GRID ===== */
 
 .prizes-grid {
     display: grid;
@@ -11,19 +25,28 @@
     margin: 0 auto;
 }
 
+/* ===== CARD ===== */
+
 .prize-card {
     padding: 40px 20px;
     text-align: center;
     cursor: default;
     position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
+/* Optimized hover (no heavy glow stacks) */
 .prize-card:hover {
+    transform: translateY(-8px) scale(1.03);
     border-color: var(--prize-color, var(--st-cyan));
     box-shadow:
-        0 0 20px color-mix(in srgb, var(--prize-color, var(--st-cyan)) 25%, transparent),
-        0 0 50px color-mix(in srgb, var(--prize-color, var(--st-cyan)) 10%, transparent);
+        0 0 12px color-mix(in srgb, var(--prize-color, var(--st-cyan)) 20%, transparent);
 }
+
+/* ===== ICON ===== */
 
 .prize-icon-wrap {
     width: 64px;
@@ -34,14 +57,15 @@
     justify-content: center;
     font-size: 1.8rem;
     color: var(--prize-color, var(--st-cyan));
-    filter: drop-shadow(0 0 8px var(--prize-glow, var(--st-cyan-glow)));
-    transition: var(--st-transition);
+    text-shadow: 0 0 6px var(--prize-glow, var(--st-cyan-glow));
+    transition: transform 0.25s ease;
 }
 
 .prize-card:hover .prize-icon-wrap {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 16px var(--prize-glow, var(--st-cyan-glow)));
+    transform: scale(1.1);
 }
+
+/* ===== TEXT ===== */
 
 .prize-place {
     font-family: var(--st-font-display);
@@ -57,21 +81,21 @@
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--prize-color, var(--st-cyan));
-    text-shadow: 0 0 12px var(--prize-glow, var(--st-cyan-glow));
+    text-shadow: 0 0 8px var(--prize-glow, var(--st-cyan-glow));
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
     .prizes-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
     }
 }
 
 @media (max-width: 480px) {
     .prizes-grid {
         grid-template-columns: 1fr;
-        max-width: 300px;
+        max-width: 320px;
     }
 
     .prize-card {

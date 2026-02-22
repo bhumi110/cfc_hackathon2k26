@@ -1,6 +1,6 @@
 /* ===== FOOTER ===== */
 .footer-section {
-    background: var(--st-bg-secondary);
+    /* background: var(--st-bg-secondary); */
     padding-top: 0;
     position: relative;
 }
@@ -20,7 +20,7 @@
 .footer-logo {
     font-family: var(--st-font-display);
     font-size: 1.6rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--st-red);
     text-transform: uppercase;
     letter-spacing: 4px;

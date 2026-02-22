@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaCode, FaUsers, FaBolt } from 'react-icons/fa';
 import '../styles/about.css';
@@ -11,86 +10,41 @@ const stats = [
 ];
 
 const titleVariant = {
-    hidden: { opacity: 0, y: 50, letterSpacing: '20px', filter: 'blur(8px)' },
+    hidden: { opacity: 0, y: 40 },
     visible: {
         opacity: 1,
         y: 0,
-        letterSpacing: '6px',
-        filter: 'blur(0px)',
-        transition: { duration: 1, ease: [0.25, 0.46, 0.45, 0.94] },
+        transition: { duration: 0.6, ease: 'easeOut' },
     },
 };
 
 const descVariant = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] },
+        transition: { duration: 0.6, delay: 0.2, ease: 'easeOut' },
     },
 };
 
 const cardVariant = (i) => ({
-    hidden: { opacity: 0, y: 60, scale: 0.8, rotateX: 15, filter: 'blur(6px)' },
+    hidden: { opacity: 0, y: 40 },
     visible: {
         opacity: 1,
         y: 0,
-        scale: 1,
-        rotateX: 0,
-        filter: 'blur(0px)',
         transition: {
-            duration: 0.7,
-            delay: 0.5 + i * 0.15,
-            ease: [0.25, 0.46, 0.45, 0.94],
-        },
-    },
-});
-
-const iconVariant = (i) => ({
-    hidden: { scale: 0, rotate: -180 },
-    visible: {
-        scale: 1,
-        rotate: 0,
-        transition: {
-            duration: 0.6,
-            delay: 0.7 + i * 0.15,
-            type: 'spring',
-            stiffness: 200,
-            damping: 12,
+            duration: 0.5,
+            delay: 0.3 + i * 0.1,
+            ease: 'easeOut',
         },
     },
 });
 
 export default function About() {
     const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true });
-    const sectionRef = useRef(null);
-
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ['start end', 'end start'],
-    });
-
-    const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
 
     return (
-        <section className="st-section about-section" id="about" ref={(el) => { sectionRef.current = el; ref(el); }}>
-            {/* Parallax particles */}
-            <motion.div className="st-particles" style={{ y: bgY }}>
-                {[...Array(15)].map((_, i) => (
-                    <span
-                        key={i}
-                        className={`st-particle ${i % 2 === 0 ? 'st-particle--red' : 'st-particle--cyan'}`}
-                        style={{
-                            left: `${Math.random() * 100}%`,
-                            animationDuration: `${6 + Math.random() * 8}s`,
-                            animationDelay: `${Math.random() * 5}s`,
-                            width: `${2 + Math.random() * 3}px`,
-                            height: `${2 + Math.random() * 3}px`,
-                        }}
-                    />
-                ))}
-            </motion.div>
-
+        <section className="st-section about-section" id="about" ref={ref}>
             <div className="st-container">
                 <motion.h2
                     className="st-section-title"
@@ -108,8 +62,7 @@ export default function About() {
                     animate={inView ? 'visible' : 'hidden'}
                 >
                     A 36-hour coding marathon organized by the Coding Club where teams
-                    venture into the Upside Down to build innovative solutions. Battle the
-                    Demogorgon of boring tech and emerge with something extraordinary.
+                    venture into the Upside Down to build innovative solutions.
                 </motion.p>
 
                 <div className="about-stats">
@@ -120,19 +73,11 @@ export default function About() {
                             variants={cardVariant(i)}
                             initial="hidden"
                             animate={inView ? 'visible' : 'hidden'}
-                            whileHover={{
-                                scale: 1.05,
-                                transition: { duration: 0.2 },
-                            }}
+                            whileHover={{ scale: 1.03 }}
                         >
-                            <motion.div
-                                className="about-stat-icon"
-                                variants={iconVariant(i)}
-                                initial="hidden"
-                                animate={inView ? 'visible' : 'hidden'}
-                            >
+                            <div className="about-stat-icon">
                                 <stat.icon />
-                            </motion.div>
+                            </div>
                             <h3 className="about-stat-title">{stat.title}</h3>
                             <p className="about-stat-desc">{stat.desc}</p>
                         </motion.div>

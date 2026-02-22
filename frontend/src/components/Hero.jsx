@@ -55,7 +55,7 @@ const Hero = () => {
           <Button variant="contained" className="register-now">
             Go To Project
           </Button>
-          <Button variant="outlined" className="view-schedule" path="/timeline">
+          <Button variant="outlined" className="view-schedule" href="#timeline">
             View Schedule
           </Button>
         </div>

@@ -5,27 +5,27 @@ const timelineData = [
         description: 'Sign up your team and choose your track',
     },
     {
-        date: 'Apr 14',
+        date: 'Apr 10',
         title: 'Opening Ceremony',
         description: 'Kickoff with keynote speakers',
     },
     {
-        date: 'Apr 15',
+        date: 'Apr 10',
         title: 'Hackathon Begins',
         description: '36 hours of building starts now',
     },
     {
-        date: 'Apr 15',
+        date: 'Apr 10',
         title: 'Mentorship Sessions',
         description: 'Get guidance from industry experts',
     },
     {
-        date: 'Apr 16',
+        date: 'Apr 11',
         title: 'Submissions Due',
         description: 'Final code freeze and demo prep',
     },
     {
-        date: 'Apr 16',
+        date: 'Apr 11',
         title: 'Results & Awards',
         description: 'Winners announced at closing ceremony',
     },

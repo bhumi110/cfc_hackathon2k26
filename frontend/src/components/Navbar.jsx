@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -14,7 +14,16 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "Sponsor Call", path: "/" },
@@ -24,7 +33,7 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="absolute" className="custom-navbar">
+      <AppBar position="fixed" className={`custom-navbar ${scrolled ? "navbar-scrolled" : ""}`}>
         <Toolbar className="nav-toolbar">
           <Typography variant="h6" className="logo">
             HACKATHON
