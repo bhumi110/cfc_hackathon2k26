@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import timelineData from '../data/timelineData';
+import { CardContainer, CardBody, CardItem } from './ui/3d-card';
 import '../styles/timeline.css';
 
 const containerVariants = {
@@ -13,24 +14,10 @@ const containerVariants = {
   },
 };
 
-const slideFromLeft = {
-  hidden: { opacity: 0, x: -60, filter: 'blur(6px)' },
+const fadeIn = {
+  hidden: { opacity: 0, filter: 'blur(6px)' },
   visible: {
     opacity: 1,
-    x: 0,
-    filter: 'blur(0px)',
-    transition: {
-      duration: 0.7,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  },
-};
-
-const slideFromRight = {
-  hidden: { opacity: 0, x: 60, filter: 'blur(6px)' },
-  visible: {
-    opacity: 1,
-    x: 0,
     filter: 'blur(0px)',
     transition: {
       duration: 0.7,
@@ -55,21 +42,32 @@ const lightColors = ['#e40000', '#f5c200', '#00e5ff', '#39ff14', '#b44dff', '#ff
 function TimelineItem({ item, index }) {
   const isLeft = index % 2 === 0;
   const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true });
-  const bulbColor = lightColors[index % lightColors.length];
+  const bulbColor = '#e40000'; // Force red color as requested
 
   return (
     <motion.div
       className={`timeline-item ${isLeft ? 'timeline-item--left' : 'timeline-item--right'}`}
       ref={ref}
-      variants={isLeft ? slideFromLeft : slideFromRight}
+      variants={fadeIn}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
     >
-      <div className="timeline-content">
-        <span className="timeline-date">{item.date}</span>
-        <h3 className="timeline-title">{item.title}</h3>
-        <p className="timeline-desc">{item.description}</p>
-      </div>
+      <CardContainer
+        className="timeline-content"
+        containerClassName="timeline-card-perspective"
+      >
+        <CardBody className="timeline-card-body">
+          <CardItem translateZ={40} className="timeline-date-wrapper">
+            <span className="timeline-date">{item.date}</span>
+          </CardItem>
+          <CardItem as="h3" translateZ={60} className="timeline-title">
+            {item.title}
+          </CardItem>
+          <CardItem as="p" translateZ={30} className="timeline-desc">
+            {item.description}
+          </CardItem>
+        </CardBody>
+      </CardContainer>
 
       {/* Christmas-light bulb dot — pure CSS, no framer-motion transform conflict */}
       <div

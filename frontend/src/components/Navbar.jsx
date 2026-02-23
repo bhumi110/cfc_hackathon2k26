@@ -19,7 +19,7 @@ const Navbar = () => {
     { label: "Home", path: "/" },
     { label: "Sponsor Call", path: "/" },
     { label: "Community Partner", path: "/" },
-    { label: "Member", path: "/members" },
+    { label: "Members", path: "/members" },
   ];
 
   return (
