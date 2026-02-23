@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/hero.css";
-import bgImage from "../assets/hero-bg-st.jpg";
+import bgImage from "../assets/st-hero-bg.png";
 import { Button } from "@mui/material";
 
 const Hero = () => {
