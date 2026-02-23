@@ -113,17 +113,26 @@
     width: 100%;
 }
 
-.timeline-item--left .timeline-content {
+.timeline-item--left .timeline-card-perspective {
     grid-column: 1;
     justify-self: end;
     margin-right: 40px;
-    text-align: right;
+    /* Physical spacing from center line */
 }
 
-.timeline-item--right .timeline-content {
+.timeline-item--left .timeline-content {
+    text-align: right;
+    /* Mirrored for visual symmetry */
+}
+
+.timeline-item--right .timeline-card-perspective {
     grid-column: 2;
     justify-self: start;
     margin-left: 40px;
+    /* Physical spacing from center line */
+}
+
+.timeline-item--right .timeline-content {
     text-align: left;
 }
 
@@ -205,10 +214,29 @@
     }
 }
 
+/* ===== 3D Card Perspective Wrapper ===== */
+.timeline-card-perspective {
+    width: 100%;
+    max-width: 420px;
+    touch-action: pan-y;
+    /* Allow vertical scrolling on touch devices */
+}
+
+.timeline-card-body {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.timeline-date-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
 /* ===== Card — Hawkins Lab classified document ===== */
 .timeline-content {
     position: relative;
     max-width: 420px;
+    width: 100%;
     padding: 28px 34px;
     border-radius: 4px;
     background:
@@ -218,9 +246,8 @@
     border: 1px solid var(--st-border);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    overflow: hidden;
+    overflow: visible;
     transition:
-        transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         border-color 0.35s ease,
         box-shadow 0.35s ease;
     will-change: transform;
@@ -264,7 +291,6 @@
 
 /* Neon hover — Upside Down portal breach */
 .timeline-content:hover {
-    transform: translateY(-4px);
     border-color: var(--st-red);
     box-shadow:
         0 0 15px var(--st-red-dim),
@@ -331,14 +357,24 @@
         margin-bottom: 36px;
     }
 
-    .timeline-item--left .timeline-content,
-    .timeline-item--right .timeline-content {
+    .timeline-item--left .timeline-card-perspective,
+    .timeline-item--right .timeline-card-perspective {
         grid-column: 1;
         justify-self: start;
+    }
+
+    .timeline-item--left .timeline-content,
+    .timeline-item--right .timeline-content {
         margin-left: 44px;
         margin-right: 0;
         text-align: left;
         max-width: calc(100% - 56px);
+    }
+
+    .timeline-card-perspective {
+        max-width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .timeline-dot {
@@ -377,6 +413,10 @@
     .timeline-item--right .timeline-content {
         margin-left: 36px;
         max-width: calc(100% - 44px);
+    }
+
+    .timeline-card-perspective {
+        max-width: 100%;
     }
 
     .timeline-dot {

@@ -16,7 +16,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 90%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 90%);
 }
 
 .hero-content {
@@ -50,6 +50,7 @@
       0 0 40px #da0808;
     opacity: 1;
   }
+
   50% {
     text-shadow:
       0 0 2px #ff0000,
@@ -57,6 +58,7 @@
       0 0 10px #ff0000;
     opacity: 0.85;
   }
+
   100% {
     text-shadow:
       0 0 8px #ff0000,
@@ -75,6 +77,8 @@
 }
 
 .tagline {
+  font-family: var(--st-font-classic) !important;
+  font-weight: 700;
   color: #00ffff;
   font-size: clamp(0.9rem, 3.5vw, 1.5rem);
   margin-top: 20px;
@@ -82,7 +86,11 @@
 }
 
 .time {
-  color: rgba(255, 255, 255, 0.788);
+
+  font-family: var(--st-font-classic);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
 }
 
 /* Countdown */
@@ -97,6 +105,14 @@
 
 .countdown div h2 {
   font-size: clamp(1.2rem, 5vw, 2rem);
+  font-family: var(--st-font-classic);
+}
+
+.countdown div span {
+  font-family: var(--st-font-classic);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
 }
 
 /* Buttons */
@@ -119,17 +135,41 @@
 }
 
 @keyframes subtleShake {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-2px); }
-  40% { transform: translateX(2px); }
-  60% { transform: translateX(-2px); }
-  80% { transform: translateX(2px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-2px);
+  }
+
+  40% {
+    transform: translateX(2px);
+  }
+
+  60% {
+    transform: translateX(-2px);
+  }
+
+  80% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .view-schedule {
   border-color: cyan !important;
   color: #00ffff !important;
+  font-family: var(--st-font-classic) !important;
+  font-weight: 700 !important;
+}
+
+.register-now {
+  font-family: var(--st-font-classic) !important;
+  font-weight: 700 !important;
 }
 
 .view-schedule:hover {
