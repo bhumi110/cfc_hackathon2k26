@@ -26,16 +26,21 @@
   width: 100%;
 }
 
-/* 🔥 Main Glow Title */
 .glow-text {
   font-family: 'Cinzel Decorative', serif;
   font-size: clamp(2rem, 8vw, 6rem);
   color: #ff1a1a;
   letter-spacing: 4px;
   animation: flicker 2s infinite alternate;
+
+  text-shadow:
+    0 0 3px #000,
+    0 0 6px #000,
+    0 0 10px #da0808,
+    0 0 20px #da0808,
+    0 0 40px #da0808;
 }
 
-/* Flicker Effect */
 @keyframes flicker {
   0% {
     text-shadow:
@@ -61,30 +66,28 @@
   }
 }
 
-/* Background Inverted Text */
 .inverted-text {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel Decorative', serif;
   font-size: clamp(1.2rem, 6vw, 4rem);
   letter-spacing: 4px;
-  opacity: 0.17;
+  opacity: 0.25;
   color: #ff1a1a;
 }
 
-/* Tagline */
 .tagline {
   color: #00ffff;
-  font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+  font-size: clamp(0.9rem, 3.5vw, 1.5rem);
   margin-top: 20px;
   text-shadow: 0 0 10px #00ffff;
 }
 
 .time {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.788);
 }
 
 /* Countdown */
 .countdown {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel ', serif;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
