@@ -1,13 +1,60 @@
-/* ===== TIMELINE SECTION ===== */
+/* ===== TIMELINE SECTION — STRANGER THINGS THEME ===== */
 
-.timeline-section{
+.timeline-section {
+    position: relative;
     background:
-    radial-gradient(circle at 20% 50%, var(--st-red-dim) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, var(--st-cyan-dim) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(180, 77, 255, 0.06) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, var(--st-red-dim) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--st-cyan-dim) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(180, 77, 255, 0.06) 0%, transparent 50%);
 }
 
-/* Track */
+/* ===== Upside Down floating ash particles ===== */
+.st-upside-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.st-ash {
+    position: absolute;
+    bottom: -10px;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    animation: ash-float linear infinite;
+    opacity: 0;
+}
+
+@keyframes ash-float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-50vh) translateX(30px);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-110vh) translateX(-20px);
+        opacity: 0;
+    }
+}
+
+/* ===== Title flicker — like a Hawkins street light ===== */
+.timeline-title-flicker {
+    animation: st-title-flicker 8s linear infinite;
+}
+
+/* ===== Track ===== */
 .timeline-track {
     position: relative;
     max-width: 900px;
@@ -15,24 +62,55 @@
     padding: 40px 0;
 }
 
-/* Center line (static now) */
+/* ===== Center line — the "wire" for Christmas lights ===== */
 .timeline-line {
     position: absolute;
     left: 50%;
     top: 0;
     bottom: 0;
     width: 2px;
-    background: var(--st-red-dim);
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(60, 60, 60, 0.6) 10%,
+            rgba(80, 80, 80, 0.8) 50%,
+            rgba(60, 60, 60, 0.6) 90%,
+            transparent 100%);
     transform: translateX(-50%);
 }
 
-/* Item Layout */
+/* Subtle glow along the wire */
+.timeline-line-glow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            var(--st-red-glow) 30%,
+            var(--st-cyan-glow) 60%,
+            rgba(180, 77, 255, 0.2) 80%,
+            transparent 100%);
+    filter: blur(8px);
+    animation: line-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes line-pulse {
+    0% {
+        opacity: 0.15;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* ===== Item Layout ===== */
 .timeline-item {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 60px;
     align-items: center;
+    width: 100%;
 }
 
 .timeline-item--left .timeline-content {
@@ -49,75 +127,290 @@
     text-align: left;
 }
 
-/* Dot (no pulse animation now) */
+/* ===== Christmas-light bulb dot — perfectly centered ===== */
 .timeline-dot {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
+    /* Use negative margins instead of transform to avoid framer-motion conflicts */
+    margin-left: -8px;
+    margin-top: -8px;
     border-radius: 50%;
-    background: var(--st-red);
-    transform: translate(-50%, -50%);
+    background: var(--bulb-color, var(--st-red));
+    box-shadow:
+        0 0 8px var(--bulb-glow, var(--st-red-glow)),
+        0 0 20px var(--bulb-glow, var(--st-red-dim)),
+        0 0 40px var(--bulb-glow, var(--st-red-dim));
+    z-index: 2;
+    animation: bulb-flicker 3s ease-in-out infinite alternate;
 }
 
-/* Card */
+/* Small wire connecting bulb to the line */
+.timeline-dot-wire {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 2px;
+    height: 6px;
+    background: rgba(100, 100, 100, 0.7);
+    transform: translateX(-50%);
+}
+
+/* Pulsing glow ring around the bulb */
+.timeline-dot-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid var(--bulb-color, var(--st-red));
+    opacity: 0;
+    animation: pulse-ring 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+}
+
+/* Christmas-light flicker — like the real string lights */
+@keyframes bulb-flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+
+    30% {
+        opacity: 0.85;
+        filter: brightness(0.9);
+    }
+
+    60% {
+        opacity: 1;
+        filter: brightness(1.15);
+    }
+
+    80% {
+        opacity: 0.9;
+        filter: brightness(0.95);
+    }
+}
+
+/* ===== Card — Hawkins Lab classified document ===== */
 .timeline-content {
-    max-width: 340px;
-    padding: 20px 24px;
-    border-radius: 12px;
-    background: rgba(154, 3, 3, 0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    max-width: 420px;
+    padding: 28px 34px;
+    border-radius: 4px;
+    background:
+        linear-gradient(135deg,
+            rgba(15, 15, 25, 0.92) 0%,
+            rgba(20, 10, 10, 0.88) 100%);
+    border: 1px solid var(--st-border);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    overflow: hidden;
+    transition:
+        transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    will-change: transform;
 }
 
-/* Clean Hover */
+/* CRT scanline overlay */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.015) 2px,
+            rgba(255, 255, 255, 0.015) 4px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Corner bracket accents — top-left & bottom-right */
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid var(--st-red);
+    border-left: 2px solid var(--st-red);
+    opacity: 0.5;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Second corner — bottom-right via box-shadow trick won't work, use the item wrapper */
+.timeline-item .timeline-content {
+    /* Ensure relative stacking */
+    isolation: isolate;
+}
+
+/* Neon hover — Upside Down portal breach */
 .timeline-content:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     border-color: var(--st-red);
+    box-shadow:
+        0 0 15px var(--st-red-dim),
+        0 0 40px rgba(228, 0, 0, 0.1),
+        inset 0 0 25px rgba(228, 0, 0, 0.05),
+        inset 0 -2px 15px rgba(0, 229, 255, 0.03);
 }
 
-/* Text */
+.timeline-content:hover::after {
+    opacity: 1;
+}
+
+/* ===== Text ===== */
 .timeline-date {
-    font-size: 0.78rem;
-    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
     color: var(--st-cyan);
-    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
+    padding: 4px 12px;
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 2px;
+    text-shadow: 0 0 10px var(--st-cyan-glow);
 }
 
 .timeline-title {
-    font-size: 1rem;
+    position: relative;
+    z-index: 2;
+    font-family: var(--st-font-display);
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--st-text-primary);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(228, 0, 0, 0.15);
 }
 
 .timeline-desc {
-    font-size: 0.85rem;
+    position: relative;
+    z-index: 2;
+    font-size: 0.95rem;
     color: var(--st-text-secondary);
-    line-height: 1.5;
+    line-height: 1.7;
 }
 
-/* ===== Responsive ===== */
+/* ===== Responsive — Tablet / Mobile ===== */
 
 @media (max-width: 768px) {
+    .timeline-track {
+        padding: 24px 0;
+    }
+
     .timeline-line {
-        left: 20px;
+        left: 16px;
     }
 
     .timeline-item {
         grid-template-columns: 1fr;
-        margin-bottom: 40px;
+        margin-bottom: 36px;
     }
 
-    .timeline-content {
-        margin-left: 50px !important;
-        margin-right: 0 !important;
-        text-align: left !important;
-        max-width: calc(100% - 70px);
+    .timeline-item--left .timeline-content,
+    .timeline-item--right .timeline-content {
+        grid-column: 1;
+        justify-self: start;
+        margin-left: 44px;
+        margin-right: 0;
+        text-align: left;
+        max-width: calc(100% - 56px);
     }
 
     .timeline-dot {
-        left: 20px;
+        left: 16px;
+        margin-left: -8px;
+    }
+
+    .timeline-content {
+        max-width: 100%;
+        padding: 22px 24px;
+    }
+
+    .timeline-title {
+        font-size: 1.1rem;
+    }
+
+    .timeline-desc {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-track {
+        padding: 16px 0;
+    }
+
+    .timeline-line {
+        left: 12px;
+    }
+
+    .timeline-item {
+        margin-bottom: 28px;
+    }
+
+    .timeline-item--left .timeline-content,
+    .timeline-item--right .timeline-content {
+        margin-left: 36px;
+        max-width: calc(100% - 44px);
+    }
+
+    .timeline-dot {
+        left: 12px;
+        width: 12px;
+        height: 12px;
+        margin-left: -6px;
+        margin-top: -6px;
+    }
+
+    .timeline-dot-ring {
+        inset: -4px;
+    }
+
+    .timeline-dot-wire {
+        height: 4px;
+        top: -4px;
+    }
+
+    .timeline-content {
+        padding: 18px 18px;
+    }
+
+    .timeline-date {
+        font-size: 0.72rem;
+        letter-spacing: 1.5px;
+        padding: 3px 8px;
+    }
+
+    .timeline-title {
+        font-size: 1rem;
+    }
+
+    .timeline-desc {
+        font-size: 0.85rem;
     }
 }
