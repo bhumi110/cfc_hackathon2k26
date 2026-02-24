@@ -26,7 +26,7 @@
   width: 100%;
 }
 
-.glow-text {
+/* .glow-text {
   font-family: 'Cinzel Decorative', serif;
   font-size: clamp(2rem, 8vw, 6rem);
   color: #ff1a1a;
@@ -38,32 +38,40 @@
     0 0 10px #da0808,
     0 0 20px #da0808,
     0 0 40px #da0808;
+} */
+
+.hero-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 700px;
+  max-width: 90%;
+  height: auto;
+  margin-bottom: 20px;
+
+  animation: fadeIn 1.5s ease-in-out, logoFlicker 3s infinite alternate;
 }
 
-@keyframes flicker {
-  0% {
-    text-shadow:
-      0 0 5px #da0808,
-      0 0 10px #da0808,
-      0 0 20px #da0808,
-      0 0 40px #da0808;
+@media (max-width: 768px) {
+  .hero-logo {
+    width: 90%;
+  }
+}
+
+@keyframes logoFlicker {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 8px #b30000)
+      drop-shadow(0 0 20px #b30000);
     opacity: 1;
   }
 
   50% {
-    text-shadow:
-      0 0 2px #ff0000,
-      0 0 5px #ff0000,
-      0 0 10px #ff0000;
-    opacity: 0.85;
-  }
-
-  100% {
-    text-shadow:
-      0 0 8px #ff0000,
-      0 0 15px #ff0000,
-      0 0 30px #ff0000;
-    opacity: 1;
+    filter:
+      drop-shadow(0 0 14px #800303)
+      drop-shadow(0 0 35px #ab0606);
+    opacity: 0.96;
   }
 }
 
@@ -124,9 +132,11 @@
 }
 
 .register-now {
+  font-family: var(--st-font-classic) !important;
   background-color: red !important;
   box-shadow: 0 0 10px red !important;
   transition: transform 0.2s ease !important;
+  font-weight: 600 !important;
 }
 
 .register-now:hover {
@@ -166,10 +176,7 @@
   font-weight: 700 !important;
 }
 
-.register-now {
-  font-family: var(--st-font-classic) !important;
-  font-weight: 700 !important;
-}
+
 
 .view-schedule:hover {
   background: rgba(0, 255, 255, 0.1) !important;
