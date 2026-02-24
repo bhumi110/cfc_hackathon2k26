@@ -1,65 +1,6 @@
 /* ===== THEMES SECTION ===== */
-/* .themes-section {
-    background: var(--st-bg-primary);
-} */
 
-.themes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.theme-card {
-    padding: 36px 24px;
-    text-align: center;
-    cursor: default;
-    position: relative;
-    overflow: hidden;
-}
-
-.theme-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: var(--theme-color, var(--st-cyan));
-    transition: width 0.4s ease;
-}
-
-.theme-card:hover::after {
-    width: 80%;
-}
-
-.theme-card:hover {
-    border-color: var(--theme-color, var(--st-red));
-    box-shadow:
-        0 0 20px color-mix(in srgb, var(--theme-color, var(--st-red)) 25%, transparent),
-        inset 0 0 20px color-mix(in srgb, var(--theme-color, var(--st-red)) 5%, transparent);
-}
-
-.theme-icon-wrap {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    color: var(--theme-color, var(--st-cyan));
-    border-radius: 14px;
-    background: color-mix(in srgb, var(--theme-color, var(--st-cyan)) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--theme-color, var(--st-cyan)) 20%, transparent);
-    transition: var(--st-transition);
-}
-
-.theme-card:hover .theme-icon-wrap {
-    background: color-mix(in srgb, var(--theme-color, var(--st-cyan)) 15%, transparent);
-    box-shadow: 0 0 25px color-mix(in srgb, var(--theme-color, var(--st-cyan)) 30%, transparent);
-    transform: scale(1.08);
-}
+/* Theme titles and descriptions within the new HoverEffect cards */
 
 .theme-title {
     font-family: var(--st-font-display);
@@ -77,21 +18,12 @@
     line-height: 1.6;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .themes-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 576px) {
-    .themes-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    .theme-card {
-        padding: 28px 20px;
-    }
+/* Custom icon wrapper for the theme cards */
+.theme-icon-wrap-new {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
 }

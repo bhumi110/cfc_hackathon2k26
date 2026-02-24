@@ -8,13 +8,16 @@
   max-width: 1300px;
   margin: 0 auto;
 }
+
 .glow-text-members {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: var(--st-font-display);
   font-size: 3rem;
-  color: #ff1a1a;
-  animation: flicker 2s infinite alternate;
+  color: var(--st-red);
+  text-shadow: 0 0 10px var(--st-red-glow);
   letter-spacing: 4px;
+  animation: flicker 2s infinite alternate;
 }
+
 /* Heading */
 .members-title {
   font-family: "Cinzel", serif;
@@ -39,17 +42,17 @@
 
 /* Card */
 .member-card {
-  background: rgba(15, 20, 30, 0.7);
-  border: 1px solid rgba(0, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
+  background: var(--st-bg-card);
+  border: 1px solid var(--st-border);
+  backdrop-filter: blur(12px);
   padding: 40px 25px;
-  border-radius: 14px;
-  transition: all 0.3s ease;
+  border-radius: var(--st-radius);
+  transition: var(--st-transition);
 }
 
 .member-card:hover {
-  border-color: #00eaff;
-  box-shadow: 0 0 35px rgba(0, 255, 255, 0.2);
+  border-color: var(--st-red);
+  box-shadow: 0 0 20px var(--st-red-dim);
 }
 
 /* Avatar */
@@ -58,17 +61,14 @@
   height: 120px;
   margin: 0 auto 25px auto;
   border-radius: 50%;
-  border-color: #00eaff !important;
-  border:2px solid #00eaff;
+  border: 2px solid var(--st-red);
   padding: 4px;
-  box-shadow: 0 0 35px rgba(0, 255, 255, 0.272);
-  transition: all 0.3s ease;
-
-  /* background: radial-gradient(circle, #00eaff 0%, transparent 70%); */
+  box-shadow: 0 0 20px var(--st-red-dim);
+  transition: var(--st-transition);
 }
-.member-avatar:hover{
-  box-shadow: 0 0 35px rgba(0, 255, 255, 0.422);
 
+.member-avatar:hover {
+  box-shadow: 0 0 35px rgba(255, 0, 0, 0.557);
 }
 
 .member-avatar img {
@@ -80,7 +80,14 @@
 
 /* Name */
 .member-name {
-  font-family: "Cinzel", serif;
+  font-family: var(--st-font-classic);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+/* Prize Label */
+.prize-place {
+  font-family: var(--st-font-classic);
   font-size: 20px;
   margin-bottom: 8px;
 }
@@ -105,7 +112,7 @@
 .member-socials a {
   color: #9aa4b2;
   transition: 0.3s ease;
-  
+
 }
 
 .member-socials a:hover {
@@ -125,7 +132,7 @@
   margin-top: 40px;
   color: #a855f7;
   text-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
-    font-family: 'Cinzel Decorative', serif;
+  font-family: 'Cinzel Decorative', serif;
 }
 
 .mentor-grid {
@@ -172,6 +179,7 @@
   color: #ccc;
   line-height: 1.6;
 }
+
 .mentor-avatar {
   width: 110px;
   height: 110px;
@@ -190,9 +198,10 @@
 }
 
 @media (max-width: 768px) {
-    .glow-text-members {
+  .glow-text-members {
     font-size: 2rem;
   }
+
   .members-title {
     font-size: 34px;
   }

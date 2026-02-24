@@ -1,34 +1,142 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import sponsorsData from '../data/sponsorsData';
-import '../styles/sponsors.css';
-
-const tiers = [
-    { key: 'platinum', label: 'Platinum Sponsors', accent: 'var(--st-cyan)' },
-    { key: 'gold', label: 'Gold Sponsors', accent: '#ffd700' },
-    { key: 'silver', label: 'Silver Sponsors', accent: '#c0c0c0' },
-];
+import { motion, useAnimate } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import sponsorsData from "../data/sponsorsData";
+import {
+    SiGoogle,
+    SiTiktok,
+    SiSpotify,
+} from "react-icons/si";
+import { FaDiscord } from "react-icons/fa";
+import {
+    Github,
+    Twitter,
+    Instagram,
+    Facebook,
+    Linkedin,
+    Code,
+} from "lucide-react";
+import "../styles/sponsors.css";
 
 const titleVariant = {
     hidden: { opacity: 0, y: 40 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: 'easeOut' },
+        transition: { duration: 0.6, ease: "easeOut" },
     },
 };
 
-const fadeUp = (delay = 0) => ({
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5, delay, ease: 'easeOut' },
-    },
-});
+const NO_CLIP = "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
+const BOTTOM_RIGHT_CLIP = "polygon(0 0, 100% 0, 0 0, 0% 100%)";
+const TOP_RIGHT_CLIP = "polygon(0 0, 0 100%, 100% 100%, 0% 100%)";
+const BOTTOM_LEFT_CLIP = "polygon(100% 100%, 100% 0, 100% 100%, 0 100%)";
+const TOP_LEFT_CLIP = "polygon(0 0, 100% 0, 100% 100%, 100% 0)";
+
+const ENTRANCE_KEYFRAMES = {
+    left: [BOTTOM_RIGHT_CLIP, NO_CLIP],
+    bottom: [BOTTOM_RIGHT_CLIP, NO_CLIP],
+    top: [BOTTOM_RIGHT_CLIP, NO_CLIP],
+    right: [TOP_LEFT_CLIP, NO_CLIP],
+};
+
+const EXIT_KEYFRAMES = {
+    left: [NO_CLIP, TOP_RIGHT_CLIP],
+    bottom: [NO_CLIP, TOP_RIGHT_CLIP],
+    top: [NO_CLIP, TOP_RIGHT_CLIP],
+    right: [NO_CLIP, BOTTOM_LEFT_CLIP],
+};
+
+const LinkBox = ({ Icon, href, imgSrc, className, label, containerClassName }) => {
+    const [scope, animate] = useAnimate();
+
+    const getNearestSide = (e) => {
+        const box = e.target.getBoundingClientRect();
+
+        const proximityToLeft = {
+            proximity: Math.abs(box.left - e.clientX),
+            side: "left",
+        };
+        const proximityToRight = {
+            proximity: Math.abs(box.right - e.clientX),
+            side: "right",
+        };
+        const proximityToTop = {
+            proximity: Math.abs(box.top - e.clientY),
+            side: "top",
+        };
+        const proximityToBottom = {
+            proximity: Math.abs(box.bottom - e.clientY),
+            side: "bottom",
+        };
+
+        const sortedProximity = [
+            proximityToLeft,
+            proximityToRight,
+            proximityToTop,
+            proximityToBottom,
+        ].sort((a, b) => a.proximity - b.proximity);
+
+        return sortedProximity[0].side;
+    };
+
+    const handleMouseEnter = (e) => {
+        const side = getNearestSide(e);
+        animate(scope.current, {
+            clipPath: ENTRANCE_KEYFRAMES[side],
+        });
+    };
+
+    const handleMouseLeave = (e) => {
+        const side = getNearestSide(e);
+        animate(scope.current, {
+            clipPath: EXIT_KEYFRAMES[side],
+        });
+    };
+
+    return (
+        <a
+            href={href}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className={`relative grid h-20 w-full place-content-center sm:h-28 md:h-36 text-white bg-[var(--st-bg-card)] hover:text-[var(--st-red)] border border-[var(--st-border)] transition-colors duration-300 ${containerClassName || ""}`}
+        >
+            {imgSrc ? (
+                <img
+                    src={imgSrc}
+                    alt={label || "custom icon"}
+                    className={className ?? "max-h-10 sm:max-h-16 md:max-h-20 object-contain brightness-100 grayscale"}
+                />
+            ) : (
+                <Icon className="text-xl sm:text-3xl md:text-4xl" />
+            )}
+
+            <div
+                ref={scope}
+                style={{ clipPath: BOTTOM_RIGHT_CLIP }}
+                className="absolute inset-0 grid place-content-center bg-[var(--st-red)] text-white transition-colors duration-300"
+            >
+                {imgSrc ? (
+                    <img
+                        src={imgSrc}
+                        alt={label || "custom icon hover"}
+                        className={className ?? "max-h-10 sm:max-h-16 md:max-h-20 object-contain brightness-0 invert"}
+                    />
+                ) : (
+                    <Icon className="text-xl sm:text-3xl md:text-4xl" />
+                )}
+            </div>
+        </a>
+    );
+};
 
 export default function Sponsors() {
     const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+
+    const allSponsors = [
+        ...sponsorsData.platinum,
+        ...sponsorsData.gold,
+        ...sponsorsData.silver
+    ];
 
     return (
         <section className="st-section sponsors-section" id="sponsors" ref={ref}>
@@ -37,50 +145,25 @@ export default function Sponsors() {
                     className="st-section-title"
                     variants={titleVariant}
                     initial="hidden"
-                    animate={inView ? 'visible' : 'hidden'}
+                    animate={inView ? "visible" : "hidden"}
                 >
                     Our Sponsors
                 </motion.h2>
 
-                {tiers.map((tier, tierIndex) => (
-                    <div className="sponsor-tier" key={tier.key}>
-                        <motion.h3
-                            className="sponsor-tier-label"
-                            style={{ color: tier.accent }}
-                            variants={fadeUp(tierIndex * 0.15)}
-                            initial="hidden"
-                            animate={inView ? 'visible' : 'hidden'}
-                        >
-                            {tier.label}
-                        </motion.h3>
-
-                        <motion.div
-                            className="sponsor-tier-divider"
-                            variants={fadeUp(tierIndex * 0.15 + 0.1)}
-                            initial="hidden"
-                            animate={inView ? 'visible' : 'hidden'}
-                        />
-
-                        <div className={`sponsor-logos sponsor-logos--${tier.key}`}>
-                            {sponsorsData[tier.key].map((sponsor, i) => (
-                                <motion.div
-                                    className="sponsor-logo-card st-card"
-                                    key={i}
-                                    variants={fadeUp(tierIndex * 0.15 + i * 0.08)}
-                                    initial="hidden"
-                                    animate={inView ? 'visible' : 'hidden'}
-                                    whileHover={{ scale: 1.03 }}
-                                >
-                                    <img
-                                        src={sponsor.logo}
-                                        alt={sponsor.name}
-                                        loading="lazy"
-                                    />
-                                </motion.div>
-                            ))}
-                        </div>
+                {/* Sponsor Logos Grid */}
+                <div className="divide-y border divide-[var(--st-border)] border-[var(--st-border)] rounded-[var(--st-radius)] overflow-hidden bg-[var(--st-bg-card)]">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 divide-x divide-y divide-[var(--st-border)]">
+                        {allSponsors.map((sponsor, i) => (
+                            <LinkBox
+                                key={i}
+                                imgSrc={sponsor.logo}
+                                href="#"
+                                label={sponsor.name}
+                                containerClassName={i === allSponsors.length - 1 && allSponsors.length % 2 !== 0 ? "col-span-2 sm:col-span-1" : ""}
+                            />
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
         </section>
     );

@@ -324,7 +324,7 @@
 .timeline-title {
     position: relative;
     z-index: 2;
-    font-family: var(--st-font-display);
+    font-family: var(--st-font-classic);
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--st-text-primary);
@@ -337,8 +337,10 @@
     position: relative;
     z-index: 2;
     font-size: 0.95rem;
+    font-weight: 700;
     color: var(--st-text-secondary);
     line-height: 1.7;
+    letter-spacing: 0.5px;
 }
 
 /* ===== Responsive — Tablet / Mobile ===== */
