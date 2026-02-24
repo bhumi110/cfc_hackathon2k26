@@ -7,11 +7,9 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-        circle at center,
-        rgba(168, 85, 247, 0.07),
-        transparent 60%
-    );
+    background: radial-gradient(circle at center,
+            rgba(168, 85, 247, 0.07),
+            transparent 60%);
     pointer-events: none;
 }
 
@@ -38,12 +36,13 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-/* Optimized hover (no heavy glow stacks) */
+/* Unified Stranger Things red hover */
 .prize-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    border-color: var(--prize-color, var(--st-cyan));
+    transform: translateY(-10px) scale(1.04);
+    border-color: var(--st-red);
     box-shadow:
-        0 0 12px color-mix(in srgb, var(--prize-color, var(--st-cyan)) 20%, transparent);
+        0 0 20px rgba(228, 0, 0, 0.4),
+        inset 0 0 15px rgba(228, 0, 0, 0.1);
 }
 
 /* ===== ICON ===== */
@@ -62,19 +61,27 @@
 }
 
 .prize-card:hover .prize-icon-wrap {
-    transform: scale(1.1);
+    transform: scale(1.15);
+    color: var(--st-red);
+    text-shadow: 0 0 15px rgba(228, 0, 0, 0.8);
 }
 
 /* ===== TEXT ===== */
 
 .prize-place {
-    font-family: var(--st-font-display);
+    font-family: var(--st-font-classic);
     font-size: 0.95rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--st-text-primary);
     margin-bottom: 8px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.prize-card:hover .prize-place {
+    color: var(--st-red);
+    text-shadow: 0 0 8px rgba(228, 0, 0, 0.6);
 }
 
 .prize-amount {
@@ -82,6 +89,12 @@
     font-weight: 700;
     color: var(--prize-color, var(--st-cyan));
     text-shadow: 0 0 8px var(--prize-glow, var(--st-cyan-glow));
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.prize-card:hover .prize-amount {
+    color: var(--st-red);
+    text-shadow: 0 0 15px rgba(228, 0, 0, 0.9);
 }
 
 /* ===== RESPONSIVE ===== */
