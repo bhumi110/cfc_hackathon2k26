@@ -2,12 +2,12 @@ import Bhumi from "../assets/Bhumi Saraogi.jpeg";
 import Abhimanyu from "../assets/Abhimanyu Sengupta.jpeg"
 import Sabyasachi from "../assets/Sabyasachi Garai_.jpg"
 import Arijit from "../assets/Arijit Shaw.JPG"
-import Senjuti from "../assets/Senjuti Ghosh.jpg"
-import Snigdha from "../assets/Snigdha Mondal_.jpg"
+import Senjuti from "../assets/Senjuti.jpg"
+import Snigdha from "../assets/Snigdha Mondal.jpg"
 import Abhirupa from "../assets/Abhirupa Mukhopadhyay_1.jpg"
 import Zishan from "../assets/Md Zishan Azam.jpg"
 import Baishali from "../assets/Baishali.jpg"
-
+import Atique from "../assets/atique.jpg"
 
 
 export const membersData = [
@@ -23,7 +23,7 @@ export const membersData = [
   {
     id: 2,
     name: "Atique Ahmed",
-    image: "/avatars/avatar2.png",
+    image: Atique,
     socials: {
       linkedin: "https://linkedin.com/in/janedoe",
       instagram: "https://instagram.com/janedoe",

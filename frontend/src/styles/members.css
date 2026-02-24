@@ -15,6 +15,7 @@
   color: var(--st-red);
   text-shadow: 0 0 10px var(--st-red-glow);
   letter-spacing: 4px;
+  animation: flicker 2s infinite alternate;
 }
 
 /* Heading */
@@ -67,8 +68,7 @@
 }
 
 .member-avatar:hover {
-  box-shadow: 0 0 35px rgba(0, 255, 255, 0.422);
-
+  box-shadow: 0 0 35px rgba(255, 0, 0, 0.557);
 }
 
 .member-avatar img {

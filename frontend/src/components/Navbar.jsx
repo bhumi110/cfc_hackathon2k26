@@ -17,6 +17,10 @@ const Navbar = () => {
 
   const menuItems = [
     { label: "Home", path: "/" },
+
+    { label: "Sponsor Call", path: "/" },
+    { label: "Community Partner", path: "/" },
+
     { label: "Members", path: "/members" },
   ];
 
