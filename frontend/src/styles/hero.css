@@ -26,19 +26,7 @@
   width: 100%;
 }
 
-/* .glow-text {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(2rem, 8vw, 6rem);
-  color: #ff1a1a;
-  letter-spacing: 4px;
-  animation: flicker 2s infinite alternate;
-  text-shadow:
-    0 0 3px #000,
-    0 0 6px #000,
-    0 0 10px #da0808,
-    0 0 20px #da0808,
-    0 0 40px #da0808;
-} */
+
 
 .hero-logo {
   display: block;

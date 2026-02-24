@@ -1,6 +1,7 @@
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import prizesData from '../data/prizesData';
+import monster3 from '../assets/3.jpg';
 import '../styles/prizes.css';
 
 const fadeUp = {
@@ -25,7 +26,7 @@ export default function Prizes() {
   return (
     <section className="st-section prizes-section" id="prizes" ref={ref}>
       <div className="st-container">
-        
+
         <motion.h2
           className="st-section-title"
           variants={fadeUp}
@@ -34,6 +35,8 @@ export default function Prizes() {
         >
           Prizes
         </motion.h2>
+
+        <img src={monster3} alt="Demodog" className="prizes-monster" />
 
         <div className="prizes-grid">
           {prizesData.map((prize, i) => (

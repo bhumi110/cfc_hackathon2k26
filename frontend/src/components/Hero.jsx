@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../styles/hero.css";
 import bgImage from "../assets/st-hero-bg.png";
+// import monster4 from '../assets/4.jpg';
 import { Button } from "@mui/material";
 import logo from "../assets/st-text-hero.png";
+
 const Hero = () => {
   const calculateTimeLeft = () => {
     const difference = +new Date("2026-04-10") - +new Date();
@@ -38,6 +40,8 @@ const Hero = () => {
 
         <div className="hero-content">
           <img src={logo} alt="Hack The Upside Down" className="hero-logo" />
+
+          {/* <img src={monster4} alt="Mind Flayer Silhouette" className="hero-monster-silhouette" /> */}
 
           <p className="tagline fade-in-up delay-1">Enter the Upside Down of Innovation</p>
           <p className="time fade-in-up delay-2">April 10 - 11, 2026 • NSHM KNOWLEDGE CAMPUS, DURGAPUR</p>

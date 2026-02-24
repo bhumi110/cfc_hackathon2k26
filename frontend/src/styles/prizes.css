@@ -115,3 +115,28 @@
         padding: 30px 16px;
     }
 }
+
+.prizes-monster {
+    position: absolute;
+    top: 50%;
+    right: -2%;
+    width: 280px;
+    height: auto;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+    filter: drop-shadow(0 0 10px rgba(180, 77, 255, 0.4));
+    animation: float-monster-horiz 9s ease-in-out infinite;
+}
+
+@keyframes float-monster-horiz {
+
+    0%,
+    100% {
+        transform: translateY(-50%) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-50%) translateX(-20px);
+    }
+}

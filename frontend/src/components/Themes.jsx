@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import themesData from '../data/themesData';
+import monster2 from '../assets/2.jpg';
 import { HoverEffect, CardTitle, CardDescription } from "./ui/card-hover-effect";
 import '../styles/themes.css';
 
@@ -57,6 +58,7 @@ export default function Themes() {
                 ref(el);
             }}
         >
+            <img src={monster2} alt="Mind Flayer" className="themes-monster" />
             <div className="st-container">
                 <motion.h2
                     className="st-section-title"
