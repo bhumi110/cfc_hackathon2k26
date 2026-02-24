@@ -28,9 +28,13 @@
 /* ================= LOGO ================= */
 
 .logo {
-  font-family: 'Cinzel Decorative', serif !important;
-  color: #ff1a1a !important;
-  letter-spacing: 2px;
+  display: flex;
+
+
+  width: 250px;
+  max-width: 60%;
+  height: auto;
+
 }
 
 /* ================= DESKTOP LINKS ================= */

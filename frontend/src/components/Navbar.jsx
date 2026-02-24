@@ -11,6 +11,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
+import navtext from "../assets/st-text-navbar.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -28,18 +29,16 @@ const Navbar = () => {
     <>
       <AppBar position="fixed" className="custom-navbar" elevation={0}>
         <Toolbar className="nav-toolbar">
-          <Typography variant="h6" className="logo">
-            HACKATHON
-          </Typography>
+          <img
+            src={navtext}
+            alt="code for change 2.0"
+            className="logo"
+          />
 
           {/* Desktop Menu */}
           <Box className="nav-links">
             {menuItems.map((item) => (
-              <Button
-                key={item.label}
-                component={Link}
-                to={item.path}
-              >
+              <Button key={item.label} component={Link} to={item.path}>
                 {item.label}
               </Button>
             ))}

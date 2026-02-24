@@ -4,14 +4,14 @@ import "../styles/members.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import text from "../assets/st-text-members.png";
 
 const Members = () => {
   return (
     <section className="members-section" id="members">
       <div className="members-container fade-in-up">
-        <h1 className="glow-text-members">
-          MEET THE MINDS BEHIND THE <br /> UPSIDE DOWN
-        </h1>
+                  <img src={text} alt="meet the minds behind the upside down" className="hero-logo" />
+        
         <br />
         <h2 className="members-title ">CORE TEAM</h2>
         <p className="members-subtitle fade-in-up delay-1">
