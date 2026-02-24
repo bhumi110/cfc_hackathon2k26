@@ -26,6 +26,35 @@
   width: 100%;
 }
 
+.hero-monster-silhouette {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(4px);
+  animation: hero-monster-pulse 10s ease-in-out infinite;
+}
+
+@keyframes hero-monster-pulse {
+
+  0%,
+  100% {
+    opacity: 0.08;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.12;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
 .glow-text {
   font-family: 'Cinzel Decorative', serif;
   font-size: clamp(2rem, 8vw, 6rem);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/hero.css";
 import bgImage from "../assets/st-hero-bg.png";
+import monster4 from '../assets/4.jpg';
 import { Button } from "@mui/material";
 
 const Hero = () => {
@@ -40,6 +41,8 @@ const Hero = () => {
           <h1 className="glow-text">
             HACK THE <br /> UPSIDE DOWN
           </h1>
+
+          <img src={monster4} alt="Mind Flayer Silhouette" className="hero-monster-silhouette" />
 
           <p className="tagline fade-in-up delay-1">Enter the Upside Down of Innovation</p>
           <p className="time fade-in-up delay-2">April 10 - 16, 2026 • NSHM KNOWLEDGE CAMPUS, DURGAPUR</p>

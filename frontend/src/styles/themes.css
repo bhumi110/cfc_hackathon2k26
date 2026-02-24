@@ -27,3 +27,28 @@
     height: 64px;
     margin: 0 auto;
 }
+
+.themes-monster {
+    position: absolute;
+    bottom: -50px;
+    left: -80px;
+    width: 450px;
+    height: auto;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+    filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.5));
+    animation: float-monster-alt 12s ease-in-out infinite;
+}
+
+@keyframes float-monster-alt {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(15px) scale(1.05) rotate(-3deg);
+    }
+}

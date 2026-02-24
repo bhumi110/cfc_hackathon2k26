@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaCode, FaUsers, FaBolt } from 'react-icons/fa';
+import monster1 from '../assets/1.jpg';
 import '../styles/about.css';
 
 const stats = [
@@ -55,6 +56,8 @@ export default function About() {
                     About the Hackathon
                 </motion.h2>
 
+                <img src={monster1} alt="Demogorgon" className="about-monster" />
+
                 <motion.p
                     className="about-description"
                     variants={descVariant}
@@ -73,7 +76,7 @@ export default function About() {
                             variants={cardVariant(i)}
                             initial="hidden"
                             animate={inView ? 'visible' : 'hidden'}
-                            whileHover={{ scale: 1.03 }}
+                            whileHover={{ scale: 1.05, y: -10 }}
                         >
                             <div className="about-stat-icon">
                                 <stat.icon />
