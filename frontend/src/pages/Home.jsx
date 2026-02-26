@@ -21,9 +21,9 @@ function Home() {
         <Hero />
         <About />
         <Timeline />
-        <Venue />
         <Themes />
         <Prizes />
+        <Venue />
         <FAQ />
         <Sponsors />
         <Footer />

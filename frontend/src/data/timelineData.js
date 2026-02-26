@@ -2,12 +2,12 @@ const timelineData = [
     {
         date: 'Mar 15',
         title: 'Registration Opens',
-        description: 'Sign up your team and choose your track',
+        description: 'Start registering for the hackathon and secure your spot',
     },
     {
         date: 'Apr 14',
-        title: 'team formation deadline',
-        description: '',
+        title: 'Team Formation Deadline',
+        description: 'Final deadline to form your team and submit team details',
     },
     {
         date: 'Apr 15',
@@ -16,8 +16,8 @@ const timelineData = [
     },
     {
         date: 'Apr 15',
-        title: 'Mid evaluation',
-        description: 'Get guidance from industry experts',
+        title: 'Mid Evaluation',
+        description: 'Judges review projects at the halfway point and provide feedback',
     },
     {
         date: 'Apr 16',

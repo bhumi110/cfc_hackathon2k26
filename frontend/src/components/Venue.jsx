@@ -53,7 +53,7 @@ const Venue = () => {
                     </div>
 
                     <div className="venue-info" onClick={() => window.open(googleMapsUrl, '_blank')}>
-                        <h3 className="venue-address">NSHM ACADEMY, DURGAPUR</h3>
+                        <h3 className="venue-address">NSHM KNOWLEDGE CAMPUS, DURGAPUR</h3>
                         <p className="venue-details">
                             Arrah, Shibtala, Muchipara<br />
                             Durgapur - 713212, West Bengal, India
