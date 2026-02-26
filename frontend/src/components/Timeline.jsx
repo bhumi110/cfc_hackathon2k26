@@ -4,6 +4,25 @@ import timelineData from '../data/timelineData';
 import { CardContainer, CardBody, CardItem } from './ui/3d-card';
 import '../styles/timeline.css';
 
+// Import character images
+import elevenImg from '../assets/character name/Stranger_Things_Eleven-removebg-preview (1).png';
+import steveImg from '../assets/character name/Steve_Harrington-removebg-preview.png';
+import nancyImg from '../assets/character name/Nancy_Wheeler-removebg-preview.png';
+import dustinImg from '../assets/character name/download-removebg-preview.png';
+import willImg from '../assets/character name/Will_Byers-removebg-preview.png';
+import whatsitImg from '../assets/character name/mr_whatsit__-removebg-preview.png';
+
+const characterImages = [
+  elevenImg,
+  dustinImg,
+  nancyImg,
+  steveImg,
+  willImg,
+  whatsitImg
+];
+
+
+
 const containerVariants = {
   hidden: {},
   visible: {
@@ -39,15 +58,16 @@ const titleVariant = {
 /* Stranger Things Christmas-light colors for the dots */
 const lightColors = ['#e40000', '#f5c200', '#00e5ff', '#39ff14', '#b44dff', '#ff6b35'];
 
-function TimelineItem({ item, index }) {
+function TimelineItem({ item, index, characterImg }) {
   const isLeft = index % 2 === 0;
   const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true });
   const bulbColor = '#e40000'; // Force red color as requested
 
   return (
     <motion.div
-      className={`timeline-item ${isLeft ? 'timeline-item--left' : 'timeline-item--right'}`}
+      className={`timeline-item ${isLeft ? 'timeline-item--left' : 'timeline-item--right'} timeline-item-${index}`}
       ref={ref}
+
       variants={fadeIn}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
@@ -65,6 +85,11 @@ function TimelineItem({ item, index }) {
           </CardItem>
           <CardItem as="p" translateZ={30} className="timeline-desc">
             {item.description}
+          </CardItem>
+
+          {/* Character background/side image */}
+          <CardItem translateZ={20} className="timeline-character-wrapper">
+            <img src={characterImg} alt="Character" className="timeline-character-img" />
           </CardItem>
         </CardBody>
       </CardContainer>
@@ -122,7 +147,12 @@ export default function Timeline() {
           </div>
 
           {timelineData.map((item, i) => (
-            <TimelineItem item={item} index={i} key={i} />
+            <TimelineItem
+              item={item}
+              index={i}
+              key={i}
+              characterImg={characterImages[i % characterImages.length]}
+            />
           ))}
         </motion.div>
       </div>

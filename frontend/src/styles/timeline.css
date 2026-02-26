@@ -333,7 +333,49 @@
     text-shadow: 0 0 20px rgba(228, 0, 0, 0.15);
 }
 
+.timeline-character-wrapper {
+    position: absolute;
+    bottom: -10px;
+    right: -20px;
+    width: 140px;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.3;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.timeline-item--left .timeline-character-wrapper {
+    right: auto;
+    left: -20px;
+    transform: scaleX(-1);
+    /* Flip for left side */
+}
+
+.timeline-character-img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(0.5) contrast(1.2);
+}
+
+.timeline-content:hover .timeline-character-wrapper {
+    opacity: 0.6;
+    transform: translateY(-5px);
+}
+
+.timeline-item--left .timeline-content:hover .timeline-character-wrapper {
+    transform: translateY(-5px) scaleX(-1);
+}
+
+/* Specific adjustment for the 3rd item's character image */
+.timeline-item-2 .timeline-character-wrapper {
+    bottom: -42px;
+}
+
+
 .timeline-desc {
+
+
     position: relative;
     z-index: 2;
     font-size: 0.95rem;
