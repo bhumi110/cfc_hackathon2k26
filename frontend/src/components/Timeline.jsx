@@ -132,7 +132,7 @@ export default function Timeline() {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          Timeline
+          MISSION SEQUENCE
         </motion.h2>
 
         <motion.div

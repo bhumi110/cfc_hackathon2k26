@@ -147,7 +147,7 @@ export default function Sponsors() {
                     initial="hidden"
                     animate={inView ? "visible" : "hidden"}
                 >
-                    OUR SPONSORS
+                    PARTNERS FROM THE OTHER SIDE
                 </motion.h2>
 
                 <div className="sponsor-tiers-container">

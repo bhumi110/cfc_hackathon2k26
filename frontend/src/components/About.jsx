@@ -53,7 +53,7 @@ export default function About() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                 >
-                    About the Hackathon
+                    THE STORY OF THE PORTAL
                 </motion.h2>
 
                 <img src={monster1} alt="Demogorgon" className="about-monster" />

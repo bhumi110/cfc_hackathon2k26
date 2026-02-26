@@ -33,7 +33,7 @@ export default function Prizes() {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          Prizes
+          THE HAWKINS BOUNTY
         </motion.h2>
 
         <img src={monster3} alt="Demodog" className="prizes-monster" />

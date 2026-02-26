@@ -6,17 +6,17 @@ const timelineData = [
     },
     {
         date: 'Apr 14',
-        title: 'Opening Ceremony',
-        description: 'Kickoff with keynote speakers',
+        title: 'team formation deadline',
+        description: '',
     },
     {
         date: 'Apr 15',
         title: 'Hackathon Begins',
-        description: '36 hours of building starts now',
+        description: '24 hours of building starts now',
     },
     {
         date: 'Apr 15',
-        title: 'Mentorship Sessions',
+        title: 'Mid evaluation',
         description: 'Get guidance from industry experts',
     },
     {

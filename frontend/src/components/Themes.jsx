@@ -60,7 +60,7 @@ export default function Themes() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                 >
-                    Themes
+                    THE DIMENSIONS OF INNOVATION
                 </motion.h2>
 
                 <div className="mt-8">
