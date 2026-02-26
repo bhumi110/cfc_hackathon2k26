@@ -1,31 +1,112 @@
-/* ===== THEMES SECTION ===== */
+/* ===== BRUTALIST THEMES SECTION ===== */
 
-/* Theme titles and descriptions within the new HoverEffect cards */
-
-.theme-title {
-    font-family: var(--st-font-display);
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--st-text-primary);
-    margin-bottom: 10px;
+.themes-section {
+    background: var(--st-bg-primary);
+    padding: 100px 0;
 }
 
-.theme-desc {
-    font-size: 0.88rem;
-    color: var(--st-text-secondary);
-    line-height: 1.6;
+/* Redefining HoverEffect container gap */
+.themes-section .max-w-7xl {
+    gap: 40px !important;
+    /* Increase gap for the large offsets */
 }
 
-/* Custom icon wrapper for the theme cards */
-.theme-icon-wrap-new {
+/* Brutalist Card Styling */
+.brutalist-card {
+    width: 100%;
+    padding: 25px;
+    background: #0c0c0e;
+    border: 4px solid var(--st-red);
+    box-shadow: 10px 10px 0 #000, 10px 10px 0 2px var(--st-red);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    margin: 0 auto;
+    flex-direction: column;
+}
+
+.brutalist-card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0 #000, 15px 15px 0 2px var(--st-red);
+}
+
+.card__title {
+    font-family: var(--st-font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--st-text-primary);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 2px;
+}
+
+.card__title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--st-red);
+    transform: translateX(-105%);
+    transition: transform 0.3s;
+}
+
+.brutalist-card:hover .card__title::after {
+    transform: translateX(0);
+}
+
+.card__content {
+    font-family: var(--st-font-body);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--st-text-primary);
+    /* Brightened for visibility */
+    margin-bottom: 25px;
+}
+
+/* Icon Wrapper inside Brutalist Card */
+.theme-icon-brutalist {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    filter: drop-shadow(4px 4px 0 #000);
+    transition: transform 0.3s;
+}
+
+.brutalist-card:hover .theme-icon-brutalist {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+    0% {
+        transform: translate(2px, 2px);
+    }
+
+    25% {
+        transform: translate(-2px, -2px);
+    }
+
+    50% {
+        transform: translate(-2px, 2px);
+    }
+
+    75% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(2px, 2px);
+    }
+}
+
+.glitch-hover:hover {
+    animation: glitch 0.3s infinite;
+    color: var(--st-red);
 }
 
 .themes-monster {
@@ -34,10 +115,10 @@
     left: -80px;
     width: 450px;
     height: auto;
-    opacity: 0.5;
+    opacity: 0.2;
     pointer-events: none;
     z-index: 0;
-    filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.5));
+    filter: grayscale(1) invert(1);
     animation: float-monster-alt 12s ease-in-out infinite;
 }
 
@@ -50,5 +131,75 @@
 
     50% {
         transform: translateY(15px) scale(1.05) rotate(-3deg);
+    }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .brutalist-card {
+        padding: 15px;
+        box-shadow: 6px 6px 0 #000, 6px 6px 0 1px var(--st-red);
+    }
+
+    .card__title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .card__content {
+        font-size: 0.75rem;
+        margin-bottom: 15px;
+        display: block;
+        /* Remove line-clamp */
+    }
+
+    .theme-icon-brutalist {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .themes-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .themes-monster {
+        display: none;
+    }
+
+    .brutalist-card {
+        padding: 10px;
+        box-shadow: 4px 4px 0 #000, 4px 4px 0 1px var(--st-red);
+    }
+
+    .card__title {
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+        word-break: normal;
+        /* Prevent splitting words like HEALTHCAR / E */
+        overflow-wrap: break-word;
+        line-height: 1.2;
+    }
+
+    .card__content {
+        font-size: 0.7rem;
+        margin-bottom: 10px;
+        display: block;
+        /* Remove line-clamp */
+        max-height: none;
+    }
+
+    .theme-icon-brutalist {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .themes-section .st-container {
+        padding: 0 10px;
+    }
+
+    .themes-grid-compact {
+        gap: 15px !important;
     }
 }

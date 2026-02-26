@@ -1,13 +1,11 @@
-/* ===== SPONSORS SECTION ===== */
+/* ===== SPONSORS SECTION REDESIGN ===== */
 .sponsors-section {
-    background:
-        radial-gradient(circle at 20% 50%, var(--st-red-dim) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, var(--st-cyan-dim) 0%, transparent 50%),
-        radial-gradient(circle at 50% 80%, rgba(180, 77, 255, 0.06) 0%, transparent 50%);
+    position: relative;
+    background: var(--st-bg-primary);
 }
 
 .sponsor-tier {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     text-align: center;
 }
 
@@ -17,84 +15,120 @@
 
 .sponsor-tier-label {
     font-family: var(--st-font-display);
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 24px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
 }
 
-.sponsor-tier-divider {
-    width: 100px;
-    height: 2px;
+.sponsor-tier-underline {
+    width: 60px;
+    height: 3px;
     background: var(--st-red);
-    margin: 0 auto 30px;
-    border-radius: 2px;
+    margin: 0 auto 40px;
     box-shadow: 0 0 10px var(--st-red-glow);
 }
 
-.sponsor-logos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.sponsor-grid-centered {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
-    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.sponsor-logo-card {
-    padding: 40px;
+.sponsor-card-new {
+    position: relative;
+    width: 240px;
+    height: 120px;
+    background: #0c0c10;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.25s ease;
-    height: 180px;
+    padding: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.sponsor-logo-card img {
-    max-width: 220px;
-    width: 100%;
-    height: auto;
+.shadow-new {
+    box-shadow: 0 0 0 1px rgba(228, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.sponsor-card-new:hover {
+    border-color: var(--st-red);
+    box-shadow: 0 0 15px var(--st-red-dim);
+    transform: translateY(-5px);
+}
+
+.sponsor-logo-img {
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    filter: grayscale(100%) brightness(1);
+    filter: grayscale(100%) brightness(0.8);
     transition: filter 0.3s ease;
 }
 
-.sponsor-logo-card:hover img {
-    /* Precise #e40000 red filter starting from #000 (brightness 0) */
-    filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(7461%) hue-rotate(359deg) brightness(96%) contrast(118%);
+.sponsor-card-new:hover .sponsor-logo-img {
+    filter: grayscale(0%) brightness(1);
+}
+
+.sponsor-name-tooltip {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--st-red);
+    color: white;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-family: var(--st-font-classic);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+.sponsor-card-new:hover .sponsor-name-tooltip {
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
-    .sponsor-logos {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-    }
-
-    .sponsor-logo-card {
-        padding: 25px;
-        height: 140px;
-    }
-
-    .sponsor-logo-card img {
-        max-width: 160px;
-    }
-
     .sponsor-tier {
-        margin-bottom: 36px;
+        margin-bottom: 50px;
+    }
+
+    .sponsor-tier-label {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+
+    .sponsor-card-new {
+        width: 180px;
+        height: 100px;
+        padding: 15px;
+    }
+
+    .sponsor-grid-centered {
+        gap: 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .sponsor-logos {
-        grid-template-columns: 1fr;
+    .sponsor-card-new {
+        width: calc(50% - 10px);
+        height: 80px;
+    }
+
+    .sponsor-grid-centered {
         gap: 15px;
+        padding: 0 10px;
     }
 
-    .sponsor-logo-card {
-        padding: 20px;
-        height: 120px;
-    }
-
-    .sponsor-logo-card img {
-        max-width: 140px;
+    .sponsor-tier-underline {
+        margin-bottom: 30px;
     }
 }

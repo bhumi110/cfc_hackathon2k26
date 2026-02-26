@@ -132,10 +132,10 @@ const LinkBox = ({ Icon, href, imgSrc, className, label, containerClassName }) =
 export default function Sponsors() {
     const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
-    const allSponsors = [
-        ...sponsorsData.platinum,
-        ...sponsorsData.gold,
-        ...sponsorsData.silver
+    const tiers = [
+        { key: "platinum", label: "PLATINUM SPONSORS", color: "var(--st-cyan)" },
+        { key: "gold", label: "GOLD SPONSORS", color: "#ffd700" },
+        { key: "silver", label: "SILVER SPONSORS", color: "#e8e8e8" },
     ];
 
     return (
@@ -147,22 +147,31 @@ export default function Sponsors() {
                     initial="hidden"
                     animate={inView ? "visible" : "hidden"}
                 >
-                    Our Sponsors
+                    OUR SPONSORS
                 </motion.h2>
 
-                {/* Sponsor Logos Grid */}
-                <div className="divide-y border divide-[var(--st-border)] border-[var(--st-border)] rounded-[var(--st-radius)] overflow-hidden bg-[var(--st-bg-card)]">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 divide-x divide-y divide-[var(--st-border)]">
-                        {allSponsors.map((sponsor, i) => (
-                            <LinkBox
-                                key={i}
-                                imgSrc={sponsor.logo}
-                                href="#"
-                                label={sponsor.name}
-                                containerClassName={i === allSponsors.length - 1 && allSponsors.length % 2 !== 0 ? "col-span-2 sm:col-span-1" : ""}
-                            />
-                        ))}
-                    </div>
+                <div className="sponsor-tiers-container">
+                    {tiers.map((tier) => (
+                        <div key={tier.key} className="sponsor-tier">
+                            <h3 className="sponsor-tier-label" style={{ color: tier.color }}>
+                                {tier.label}
+                            </h3>
+                            <div className="sponsor-tier-underline"></div>
+
+                            <div className="sponsor-grid-centered">
+                                {sponsorsData[tier.key].map((sponsor, idx) => (
+                                    <div key={idx} className="sponsor-card-new shadow-new">
+                                        <img
+                                            src={sponsor.logo}
+                                            alt={sponsor.name}
+                                            className="sponsor-logo-img"
+                                        />
+                                        <span className="sponsor-name-tooltip">{sponsor.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
