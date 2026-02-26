@@ -8,6 +8,7 @@ import Themes from "../components/Themes";
 import Prizes from "../components/Prizes";
 import Sponsors from "../components/Sponsors";
 import Footer from "../components/Footer";
+import FAQ from "../components/FAQ";
 
 function Home() {
   return (
@@ -21,6 +22,7 @@ function Home() {
         <Timeline />
         <Themes />
         <Prizes />
+        <FAQ/>
         <Sponsors />
         <Footer />
       </div>
