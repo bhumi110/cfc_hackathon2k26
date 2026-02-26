@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import ParticleBackground from "../components/ParticleBg";
 import About from "../components/About";
 import Timeline from "../components/Timeline";
+import Venue from "../components/Venue";
 import Themes from "../components/Themes";
 import Prizes from "../components/Prizes";
 import Sponsors from "../components/Sponsors";
@@ -20,9 +21,10 @@ function Home() {
         <Hero />
         <About />
         <Timeline />
+        <Venue />
         <Themes />
         <Prizes />
-        <FAQ/>
+        <FAQ />
         <Sponsors />
         <Footer />
       </div>

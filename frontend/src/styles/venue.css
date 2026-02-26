@@ -1,0 +1,148 @@
+.venue-section {
+    position: relative;
+    padding: 80px 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+.venue-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.venue-title {
+    font-family: 'ITC Benguiat Bold', serif;
+    font-size: 3rem;
+    color: #e40000;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(228, 0, 0, 0.5), 0 0 20px rgba(228, 0, 0, 0.3);
+    animation: flicker 4s infinite;
+}
+
+.venue-card {
+    background: rgba(10, 10, 15, 0.8);
+    border: 2px solid #e40000;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 25px rgba(228, 0, 0, 0.2);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.venue-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(228, 0, 0, 0.4);
+}
+
+.venue-map-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+}
+
+.venue-map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(0.5) contrast(1.1) brightness(0.8);
+    transition: filter 0.4s ease;
+}
+
+.venue-card:hover .venue-map-iframe {
+    filter: grayscale(0) contrast(1) brightness(1);
+}
+
+.venue-map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.venue-info {
+    margin-top: 20px;
+    color: #eee;
+    text-align: center;
+}
+
+.venue-address {
+    font-family: 'ITC Benguiat Bold', serif;
+    font-size: 1.2rem;
+    color: #e40000;
+    margin-bottom: 10px;
+}
+
+.venue-details {
+    font-size: 1rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.venue-hint {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #f5c200;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    22%,
+    24%,
+    55% {
+        opacity: 0.6;
+        text-shadow: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .venue-title {
+        font-size: 2.2rem;
+    }
+
+    .venue-map-image {
+        height: 300px;
+    }
+}
