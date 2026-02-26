@@ -5,8 +5,8 @@ import monster1 from '../assets/1.jpg';
 import '../styles/about.css';
 
 const stats = [
-    { icon: FaCode, title: 'Build', desc: '36 hours of non-stop coding and creativity' },
-    { icon: FaUsers, title: 'Collaborate', desc: 'Teams of 2–4 hackers working together' },
+    { icon: FaCode, title: 'Build', desc: '24 hours of non-stop coding and creativity' },
+    { icon: FaUsers, title: 'Collaborate', desc: 'Teams of 1–4 hackers working together' },
     { icon: FaBolt, title: 'Innovate', desc: 'Push boundaries and solve real problems' },
 ];
 
@@ -64,7 +64,7 @@ export default function About() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                 >
-                    A 36-hour coding marathon organized by the Coding Club where teams
+                    A 24-hour coding marathon organized by the Coding Club where teams
                     venture into the Upside Down to build innovative solutions.
                 </motion.p>
 

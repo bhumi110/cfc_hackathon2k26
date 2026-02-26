@@ -39,6 +39,7 @@
   font-family: var(--st-font-classic);
   font-weight: 600;
   letter-spacing: 1px;
+  text-align: left;
 }
 
 .faq-answer {
