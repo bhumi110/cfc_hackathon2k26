@@ -24,8 +24,8 @@ function Home() {
         <Themes />
         <Prizes />
         <Venue />
-        <FAQ />
         <Sponsors />
+        <FAQ />
         <Footer />
       </div>
     </div>
