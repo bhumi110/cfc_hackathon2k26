@@ -143,9 +143,9 @@ export default function Footer() {
           <h4 className="footer-col-title">Contact</h4>
           <ul className="footer-link-list">
             <li>
-              <a href="mailto:connectcodenest@gmail.com">
+              <a href="mailto:codeforchange2.0@gmail.com">
                 <FaEnvelope style={{ marginRight: 8 }} />
-                connectcodenest@gmail.com
+                codeforchange2.0@gmail.com
               </a>
             </li>
           </ul>
