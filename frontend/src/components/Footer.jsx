@@ -31,6 +31,10 @@ const quickLinks = [
   { label: "Themes", href: "#themes" },
   { label: "Prizes", href: "#prizes" },
   { label: "Sponsors", href: "#sponsors" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Venue", href: "#venue" },
+
+
 ];
 
 const containerVariant = {
