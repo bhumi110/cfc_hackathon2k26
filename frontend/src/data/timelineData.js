@@ -1,31 +1,31 @@
 const timelineData = [
     {
-        date: 'Mar 15',
+        date: 'March 15th, 2026',
         title: 'Registration Opens',
         description: 'Start registering for the hackathon and secure your spot',
     },
     {
-        date: 'Apr 14',
+        date: 'March 30th, 2026',
         title: 'Team Formation Deadline',
         description: 'Final deadline to form your team and submit team details',
     },
     {
-        date: 'Apr 15',
+        date: 'April 5th, 2026',
+        title: 'Idea Evaluation',
+        description: 'Judges review ideas and results will be declared',
+    },
+    {
+        date: 'April 10th, 2026',
         title: 'Hackathon Begins',
         description: '24 hours of building starts now',
     },
     {
-        date: 'Apr 15',
-        title: 'Mid Evaluation',
-        description: 'Judges review projects at the halfway point and provide feedback',
-    },
-    {
-        date: 'Apr 16',
+        date: 'April 11th, 2026',
         title: 'Submissions Due',
         description: 'Final code freeze and demo prep',
     },
     {
-        date: 'Apr 16',
+        date: 'April 11th, 2026',
         title: 'Results & Awards',
         description: 'Winners announced at closing ceremony',
     },
