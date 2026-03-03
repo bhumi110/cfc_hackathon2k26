@@ -1,5 +1,5 @@
 import CommingSoon from "../assets/st-Coming-Soon.png";
-import Devfolio from "../assets/DEVFOLIO_LOGO.png";
+import Devfolio from "../assets/devfolio_text.png";
 
 const sponsorsData = {
     platinum: [

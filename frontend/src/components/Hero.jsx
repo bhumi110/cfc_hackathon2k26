@@ -4,7 +4,7 @@ import bgImage from "../assets/st-hero-bg.png";
 // import monster4 from '../assets/4.jpg';
 import { Button } from "@mui/material";
 import logo from "../assets/st-text-hero.png";
-
+import DevfolioLogo from "../assets/devfolioLogo.png";
 const Hero = () => {
   const calculateTimeLeft = () => {
     const difference = +new Date("2026-04-10") - +new Date();
@@ -54,8 +54,8 @@ const Hero = () => {
           </div>
 
           <div className="hero-buttons fade-in-up delay-3">
-            <Button variant="contained" className="register-now">
-              Go To Project
+            <Button variant="contained" className="register-now" href="https://guide.devfolio.co/docs/guide/apply-with-devfolio-integration">
+              <img src={DevfolioLogo} alt="Devfolio logo" style={{width:"10%"}}></img>Go To Project
             </Button>
             <Button variant="outlined" className="view-schedule" href="#timeline">
               View Schedule
