@@ -6,7 +6,7 @@ const sponsorsData = {
         { name: 'Coming Soon', logo: CommingSoon },
     ],
     gold: [
-        { name: 'Devfolio', logo: Devfolio,link: "https://devfolio.co" },
+        { name: 'Devfolio', logo: Devfolio,link: "https://devfolio.co",alt: "DEVFOLIO LOGO" },
         { name: 'Coming Soon', logo: CommingSoon },
 
     ],
@@ -14,8 +14,6 @@ const sponsorsData = {
         { name: 'Coming Soon', logo: CommingSoon },
         { name: 'Coming Soon', logo: CommingSoon },
         { name: 'Coming Soon', logo: CommingSoon },
-
-
     ],
 };
 
