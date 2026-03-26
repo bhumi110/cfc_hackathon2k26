@@ -2,7 +2,7 @@
 
 A modern, responsive website built to announce and showcase all details about the **CODE FOR CHANGE 2.0** — including event info, schedules, rules, and registration details.
 
-🌐 **Live Site:** [cfc-hackathon2k26.vercel.app](https://cfc-hackathon2k26.vercel.app)
+🌐 **Live Site:** https://codenestdgp.nshm.com
 
 ---
 
